@@ -1,6 +1,11 @@
 require('normalize.css/normalize.css');
 require('styles/App.scss');
+
 import ReactDOM from 'react-dom';
+
+//获取图片相关的数据
+var imageDatas = require('../data/imageDatas.json');
+
 import React from 'react';
 
 //获取图片相关的数据
@@ -274,11 +279,11 @@ var AppComponent = React.createClass({
   componentDidMount:function(){
 
     //首先拿到舞台的大小
-    var stageDOM = ReactDOM.findDOMNode(this.refs.stage),//注意
+    var stageDOM = ReactDOM.findDOMNode(this.refs.stage),
       stageW = stageDOM.scrollWidth,
       stageH = stageDOM.scrollHeight,
-      halfStageW = Math.ceil(stageW / 2),
-      halfStageH = Math.ceil(stageH / 2);
+      halfStageW = Math.floor(stageW / 2),
+      halfStageH = Math.floor(stageH / 2);
 
     //拿到一个imgageFigure的大小
     var imgFigureDOM =  ReactDOM.findDOMNode(this.refs.imgFigure0),
@@ -329,7 +334,7 @@ var AppComponent = React.createClass({
 
       imgFigures.push(<ImgFigure data={value}
                key={index}
-               ref={'imga' + index}
+               ref={'imgFigure' + index}
                arrange={this.state.imgsArrangeArr[index]}
                inverse={this.inverse(index)}
                center={this.center(index)}
