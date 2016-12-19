@@ -31,7 +31,7 @@ imageDatas =(function getImageURL(imageDatasArr){
  * 获取区间内的一个随机值
  */
 function getRangeRandom(low,high){
-  return Math.ceil(Math.random()*(high - low) + low)
+  return Math.floor(Math.random()*(high - low) + low)
 }
 
 
@@ -39,7 +39,7 @@ function getRangeRandom(low,high){
  * 获取 0～30度之间的一个任意正负值
  */
 function get30DegRandom(){
-  return ((Math.random()>0.5?' ':' - ') + Math.ceil(Math.random() * 30));
+  return ((Math.random()>0.5?' ':' - ') + Math.floor(Math.random() * 30));
 }
 
 //图片组件
@@ -196,7 +196,7 @@ var AppComponent = React.createClass({
           isCenter:true
         }
         //取出要布局上侧的图片的状态信息
-        topImgSpliceIndex = Math.ceil(Math.random() *(imgsArrangeArr.length - topImgNum));
+        topImgSpliceIndex = Math.floor(Math.random() *(imgsArrangeArr.length - topImgNum));
         imgsArrangeTopArr = imgsArrangeArr.splice(topImgSpliceIndex,topImgNum)
 
         //布局位于上侧的图片
@@ -289,8 +289,8 @@ var AppComponent = React.createClass({
     var imgFigureDOM =  ReactDOM.findDOMNode(this.refs.imgFigure0),
       imgW = imgFigureDOM.scrollWidth,
       imgH = imgFigureDOM.scrollHeight,
-      halfImgW = Math.ceil(imgW / 2),
-      halfImgH = Math.ceil(imgH / 2);
+      halfImgW = Math.floor(imgW / 2),
+      halfImgH = Math.floor(imgH / 2);
 
 
     //计算中心图片的位置点
